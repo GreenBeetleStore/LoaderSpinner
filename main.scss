@@ -1,0 +1,83 @@
+*{outline: 1px solid red;}
+
+@keyframes rotate{
+    0% {                                                /* from */
+        transform: rotateX(-90deg);
+        // opacity: 100%;
+    }
+    100% {                                               /* to */
+        transform: rotateX(0deg);
+        // opacity: 0%;
+    }
+}
+
+body {
+    background-image: url("images/chef-g9c2c02234_1280.png");
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+  }
+  .loader{
+    margin: 300px auto;
+    width: 25%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    & > .gallery{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        opacity: 100%;
+
+        perspective: 500px;
+        transform-style: preserve-3d;
+        transform: rotateX(-90deg) translateZ(50%); 
+        // animation: rotate 3000ms ease-in-out;
+
+        & .gallery__3d{
+            animation: rotate 3000ms ease-in-out;
+            & img{
+                position: relative;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                object-fit: cover;
+
+                
+                
+                & + --rest1{
+                    z-index: 1;
+                    // transform: rotateX(0deg) translateZ(50%);
+                }
+                & + --rest1{
+                    z-index: 2;
+                    // transform: rotateX(-90deg) translateZ(50%);
+                }
+                & + --rest1{
+                    z-index: 3;
+                    // transform: rotateX(-180deg) translateZ(50%);
+                }
+                & + --rest1{
+                    z-index: 4;
+                    // transform: rotateX(-270deg) translateZ(50%);
+                }
+                & + --omf{
+                    z-index: 5;
+                    // transform: rotateX(-360deg) translateZ(50%);
+                }
+            }
+        }
+    } 
+  }
